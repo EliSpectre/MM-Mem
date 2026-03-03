@@ -1,0 +1,110 @@
+{
+  "description": "GRPO 强化学习训练统一配置文件",
+  
+  "comments_phase1": "========== Phase 1: 轨迹收集配置 ==========",
+  "finetune_model_path": "/data/tempuser2/MMAgent/Qwen-VL/qwen_models/Qwen3-VL-2B-Instruct",
+  "finetune_device": "cuda:0",
+  
+  "base_api": {
+    "description": "Base Model API 配置 (用于 L1 生成)",
+    "base_url": "http://localhost:8002/v1",
+    "api_key": "EMPTY",
+    "model_name": "Qwen3-VL-2B-Instruct"
+  },
+  
+  "teacher_api": {
+    "description": "Teacher Model API 配置 (用于路径打分)",
+    "enabled": true,
+    "base_url": "http://localhost:8002/v1",
+    "api_key": "EMPTY",
+    "model_name": "Qwen3-VL-2B-Instruct"
+  },
+  
+  "comments_phase2": "========== Phase 2: VQA 评估配置 ==========",
+  "vqa_api": {
+    "description": "VQA Model API 配置 (用于问答评估)",
+    "base_url": "http://localhost:8002/v1",
+    "api_key": "EMPTY",
+    "model_name": "Qwen3-VL-2B-Instruct"
+  },
+  
+  "embedding_model": "BAAI/bge-large-en-v1.5",
+  "rerank_model": "BAAI/bge-reranker-v2-m3",
+  "device": "cuda",
+  
+  "retrieval": {
+    "description": "记忆检索配置",
+    "top_k_l2": 2,
+    "top_k_l1": 1,
+    "top_k_embedding": 20,
+    "use_visual_rerank": true
+  },
+  
+  "reward": {
+    "description": "Reward 计算配置",
+    "alpha": 0.5,
+    "reward_weight": 1.0
+  },
+  
+  "comments_phase3": "========== Phase 3: GRPO 训练配置 ==========",
+  "grpo": {
+    "description": "GRPO 强化学习训练配置",
+    
+    "comments_trajectory": "--- 轨迹采样配置 ---",
+    "window_size": 5,
+    "window_stride": 5,
+    "num_sampled_paths": 4,
+    "temperature": 0.7,
+    
+    "comments_training_method": "--- 训练方法配置 ---",
+    "training_method": "swift_custom_reward",
+    "training_methods_available": [
+      "importance_sampling - 推荐，手动实现带重要性采样和 PPO-Clip 的 GRPO",
+      "swift_custom_reward - 推荐，使用 Swift API + 自定义 reward function",
+      "manual - 简单的手动 GRPO 实现（无重要性采样）",
+      "swift_cli - 使用 Swift CLI",
+      "swift_api - 使用 Swift Python API"
+    ],
+    
+    "comments_lora": "--- LoRA 配置 ---",
+    "use_lora": true,
+    "lora_rank": 64,
+    "lora_alpha": 128,
+    "lora_dropout": 0.05,
+    
+    "comments_training_params": "--- 训练超参数 ---",
+    "num_train_epochs": 3,
+    "batch_size": 8,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-5,
+    "warmup_ratio": 0.1,
+    "max_length": 2048,
+    
+    "comments_grpo_params": "--- GRPO 特定参数 ---",
+    "beta": 0.1,
+    
+    "comments_ppo_clip": "--- PPO-Clip 配置 (限制策略更新幅度) ---",
+    "ppo_clip_epsilon": 0.2,
+    
+    "comments_importance_sampling": "--- 重要性采样配置 (校正离线数据分布偏移) ---",
+    "use_importance_sampling": true,
+    
+    "comments_kl_penalty": "--- KL 惩罚配置 (可选，与 PPO-Clip 二选一) ---",
+    "use_kl_penalty": false,
+    "kl_penalty_coef": 0.1,
+    
+    "comments_output": "--- 输出配置 ---",
+    "output_dir": "./output/grpo_checkpoints",
+    "save_steps": 100,
+    "logging_steps": 10
+  },
+  
+  "comments_paths": "========== 路径配置 ==========",
+  "memory_dir": "/data/tempuser2/MMAgent/MM-Mem/output/memories",
+  "trajectories_dir": "./output/trajectories",
+  "vqa_results_dir": "./output/vqa_results",
+  
+  "comments_other": "========== 其他配置 ==========",
+  "force_regenerate_l1": false,
+  "verbose": false
+}

@@ -1,0 +1,51 @@
+## TASK: Memory Aggregation Decision
+
+You are a Memory Manager Agent. Analyze the visual and textual context to decide how to handle a new L1 (scene-level) memory node.
+
+## EXISTING L2 MEMORY NODES (Current Memory State):
+{{CONTEXT_DESCRIPTION}}
+
+## VISUAL CONTEXT:
+- The first {{N_CONTEXT_IMAGES}} images are representative keyframes from existing L2 nodes
+- Each L2 node is represented by up to 5 keyframes selected via K-Means clustering
+
+## CURRENT L1 NODE TO PROCESS:
+- The last {{N_CURRENT_IMAGES}} images are keyframes from the current L1 node
+- Event Description: {{CURRENT_EVENT}}
+- Time Range: {{TIME_RANGE}}
+
+## AVAILABLE ACTIONS:
+
+### 1. CREATE_NEW
+Create a new L2 memory node. Use when:
+- This scene represents a completely different activity
+- There's a clear event boundary (new task, new location, new focus)
+- Time gap from previous events is significant
+
+### 2. MERGE:X
+Merge into existing L2 node at index X. Use when:
+- This scene continues the same activity as L2[X]
+- Same subjects performing related actions
+- Temporal and semantic continuity
+
+### 3. DISCARD
+Discard this L1 node. Use when:
+- The scene is redundant (near-duplicate of existing content)
+- The content is too noisy or uninformative
+- Transition frames with no meaningful content
+
+### 4. UPDATE:X
+Update L2 node at index X and potentially restructure. Use when:
+- This scene provides critical new context
+- The understanding of the event needs revision
+- Connections between events become apparent
+
+## ANALYSIS STEPS:
+1. Examine the visual content of existing L2 nodes
+2. Examine the visual content of the current L1 node
+3. Compare semantic similarity (activities, objects, subjects)
+4. Consider temporal relationships
+5. Make your decision
+
+## YOUR RESPONSE:
+Output ONLY one action: CREATE_NEW, MERGE:0, MERGE:1, ..., DISCARD, UPDATE:0, UPDATE:1, ...

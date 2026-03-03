@@ -1,0 +1,39 @@
+## CONTEXT ##
+You are provided with keyframes from a video to be analyzed for the Video-MME benchmark.
+You are also provided with a 'Event Node Name' tag.
+
+**CRITICAL WARNING (PIXELS OVER TEXT):**
+The 'Event Node Name' is for loose categorization only. **Do NOT trust it.**
+- If the tag says "cutting onion" but the pixels show "washing knife", you MUST report "washing knife".
+- **Your loyalty is strictly to the visual evidence.**
+
+## TASKS ##
+Based *strictly* on the visible evidence in the keyframes, perform the following tasks IN ORDER:
+
+**1. Visual Analysis:**
+Analyze the scene structure, actors, and actions first. Describe what is physically happening.
+
+**2. Fact Summary:**
+Generate a factual 2-3 word label (verb-noun) of the visible action.
+
+**3. OCR & Text Transcription (FINAL STEP):**
+Only AFTER analyzing the scene, scan for legible semantic text.
+**STRICT NEGATIVE CONSTRAINTS:**
+- **IGNORE** running clocks, timers, frame counters (e.g., "00:01").
+- **IGNORE** sequential lists of numbers unless they are scores.
+- **DO NOT** auto-complete number sequences.
+
+## CONTEXT DATA ##
+**Event Node Name:** {{EVENT_NODE_NAME}}
+**(Keyframes provided via image input)**
+
+## REQUIRED OUTPUT FORMAT ##
+Output a single valid JSON object. The order of keys matters.
+
+```json
+{
+  "event_fact": "Action summary (grounded in visuals).",
+  "visual_evidence": "Objective log of the scene. Include spatial layout and specific visual attributes (colors, text locations).",
+  "ocr_content": ["List visible text strings verbatim. EXCLUDE time-codes and timers. If illegible, use '[illegible]'."]
+}
+```

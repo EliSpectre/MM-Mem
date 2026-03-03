@@ -1,0 +1,87 @@
+{
+    "model": "qwen25vl7b",
+    "model_cache": "/data/tempuser2/MMAgent/Qwen-VL/qwen_models/Qwen2.5-VL-7B-Instruct",
+    "device": "cuda:0",
+    "device_map": "auto",
+    
+    "comments_scene_detection": "PySceneDetect 场景划分参数",
+    "pyscenesdetect_threshold": 20.0,
+    
+    "comments_adaptive_sampling": "自适应采样参数 (tau = mu + k * sigma)",
+    "adaptive_k": 2.0,
+    "down_sample": 2,
+    
+    "comments_l1_l2": "L1/L2/L3 关键帧数量配置",
+    "frames_per_window": 10,
+    "frames_per_L3": 3,
+    "max_frames_per_l2_context": 5,
+    
+    "comments_l2_agent": "L2 Memory Manager Agent 配置",
+    "use_vlm_decision": false,
+    "similarity_threshold": 0.7,
+    "max_time_gap_for_merge": 10.0,
+    "min_time_gap_for_new": 30.0,
+    
+    "comments_base_api": "Base Model API 配置 (用于 L1 并行生成)",
+    "base_api": {
+        "enabled": true,
+        "base_url": "http://localhost:8002/v1",
+        "api_key": "EMPTY",
+        "model_name": "Qwen3-VL-2B-Instruct",
+        "max_concurrent": 4
+    },
+    
+    "comments_l2_aggregation_api": "L2 聚合模型 API 配置 (用于 L1→L2 聚合决策，微调后的模型)",
+    "l2_aggregation_api": {
+        "enabled": true,
+        "base_url": "http://localhost:8002/v1",
+        "api_key": "EMPTY",
+        "model_name": "Qwen3-VL-2B-Instruct"
+    },
+    
+    "prompts": {
+        "L1_memory_sys_prompt": "configs/L1_memory_sys_prompt.txt",
+        "L1_memory_user_prompt": "configs/L1_memory_user_prompt.txt",
+        "L2_agent_sys_prompt": "configs/L2_agent_sys_prompt.txt",
+        "L2_agent_user_prompt": "configs/L2_agent_user_prompt.txt"
+    },
+    
+    "comments_rl": "强化学习相关配置 (后续使用)",
+    "rl_config": {
+        "enabled": false,
+        "reward_type": "downstream_accuracy",
+        "discount_factor": 0.99,
+        "learning_rate": 1e-4
+    },
+    
+    "comments_vqa_memory_retrieval": "VQA 记忆检索配置",
+    "vqa_memory_retrieval": {
+        "comments_paths": "路径配置",
+        "video_dir": "/data/tempuser2/MMAgent/Video-MME/Video_MME_Videos/videos_chunked_02",
+        "memory_dir": "/data/tempuser2/MMAgent/hd-epic-vqa-eval-main/output/memories",
+        "input_json_path": "/data/tempuser2/MMAgent/Test/multi_model/matched_questions_short.json",
+        "output_json_path": "/data/tempuser2/MMAgent/Test/multi_model/vqa_with_memory_retrieval_results.json",
+        
+        "comments_api": "vLLM API 配置",
+        "api_base_url": "http://localhost:8002/v1",
+        "api_key": "EMPTY",
+        "model_name": "Qwen3-VL-2B-Instruct",
+        
+        "comments_thresholds": "阈值和检索参数",
+        "confidence_threshold": 0.8,
+        "top_k_l2_embedding": 20,
+        "top_k_l2_rerank": 5,
+        "top_k_l1_visual": 3,
+        "max_images_per_scene": 12,
+        
+        "comments_switches": "功能开关",
+        "use_rerank": true,
+        "use_visual_rerank": true,
+        "include_video_in_retrieval": false,
+        
+        "comments_embedding": "Embedding 和 Rerank 模型配置",
+        "embedding_model_name": "BAAI/bge-large-en-v1.5",
+        "rerank_model_name": "BAAI/bge-reranker-v2-m3",
+        "embedding_device": "cuda"
+    }
+}
