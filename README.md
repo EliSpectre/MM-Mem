@@ -1,6 +1,4 @@
-# MM-Mem: From Verbatim to Gist
-
-### Distilling Pyramidal Multimodal Memory via Semantic Information Bottleneck for Long-Horizon Video Agents
+# MM-Mem: From Verbatim to Gist Distilling Pyramidal Multimodal Memory via Semantic Information Bottleneck for Long-Horizon Video Agents
 
 <p style="text-align: left;">
   <a href="https://arxiv.org/pdf/2603.01455"><img src="https://img.shields.io/badge/arXiv-2603.01455-b31b1b.svg" alt="arXiv"></a>
