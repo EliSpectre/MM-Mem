@@ -1,0 +1,36 @@
+<svg width="1200" height="260" viewBox="0 0 1200 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">ACL 2026 Main Conference Accepted</title>
+  <desc id="desc">Decorative banner celebrating acceptance to ACL 2026 Main Conference.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF6E8"/>
+      <stop offset="1" stop-color="#FFE0D2"/>
+    </linearGradient>
+    <linearGradient id="pill" x1="178" y1="38" x2="1022" y2="222" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BE123C"/>
+      <stop offset="1" stop-color="#7F1D1D"/>
+    </linearGradient>
+    <filter id="shadow" x="132" y="28" width="936" height="204" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#7F1D1D" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="260" rx="28" fill="url(#bg)"/>
+  <circle cx="88" cy="74" r="54" fill="#F59E0B" fill-opacity="0.16"/>
+  <circle cx="1112" cy="194" r="68" fill="#2563EB" fill-opacity="0.12"/>
+  <circle cx="1050" cy="78" r="28" fill="#BE123C" fill-opacity="0.14"/>
+
+  <g filter="url(#shadow)">
+    <rect x="156" y="46" width="888" height="168" rx="84" fill="url(#pill)"/>
+  </g>
+
+  <rect x="196" y="78" width="156" height="36" rx="18" fill="#FDE68A"/>
+  <text x="274" y="101" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#7C2D12">2026</text>
+
+  <text x="600" y="122" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800" letter-spacing="5" fill="#FFF8EE">ACL MAIN ACCEPTED</text>
+  <text x="600" y="162" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" letter-spacing="1.2" fill="#FEE2E2">From Verbatim to Gist: MM-Mem is accepted to the main conference</text>
+
+  <path d="M930 98C930 79.2223 945.222 64 964 64H1028C1046.78 64 1062 79.2223 1062 98V102C1062 116.359 1052.76 128.65 1039.91 133.07L1002.2 146.054C996.231 148.109 989.742 148.109 983.767 146.054L946.086 133.07C933.241 128.65 924 116.359 924 102V98H930Z" fill="#FBBF24"/>
+  <rect x="978" y="146" width="30" height="26" rx="8" fill="#F59E0B"/>
+  <rect x="962" y="170" width="62" height="14" rx="7" fill="#FCD34D"/>
+</svg>

@@ -1,7 +1,16 @@
 # MM-Mem: From Verbatim to Gist Distilling Pyramidal Multimodal Memory via Semantic Information Bottleneck for Long-Horizon Video Agents
 
+<p align="center">
+  <img src="figures/acl2026-main-accepted.svg" alt="ACL 2026 Main Conference Accepted banner" width="100%">
+</p>
+
+<p align="center">
+  <strong>News:</strong> Our paper has been accepted to the <strong>ACL 2026 Main Conference</strong>.
+</p>
+
 <p style="text-align: left;">
   <a href="https://arxiv.org/pdf/2603.01455"><img src="https://img.shields.io/badge/arXiv-2603.01455-b31b1b.svg" alt="arXiv"></a>
+  <img src="https://img.shields.io/badge/ACL%202026-Main%20Conference%20Accepted-c41e3a?style=flat-square&logo=googlescholar&logoColor=white" alt="ACL 2026 Main Conference Accepted">
 </p>
 
 This repository contains the official **PyTorch** implementation of:
@@ -159,6 +168,12 @@ Baseline scripts are provided under `Baseline/`. See the [Baseline README](Basel
 | **HD-EPIC** | Egocentric video QA | `Baseline/HD-EPIC/` |
 | **MLVU** | Long video understanding (Dev set) | `Baseline/MLVU/` |
 | **VStream-QA** | Streaming video QA | `Baseline/VStream-QA/` |
+
+### 6.1 Experimental Results
+
+The figure below highlights the main experimental results of **MM-Mem** across representative benchmarks.
+
+![Experimental Results](figures/experiment.png)
 
 ## 7. Citation
 
