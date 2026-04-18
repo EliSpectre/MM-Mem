@@ -10,8 +10,20 @@
       <stop stop-color="#BE123C"/>
       <stop offset="1" stop-color="#7F1D1D"/>
     </linearGradient>
+    <linearGradient id="yearPill" x1="28" y1="30" x2="180" y2="72" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF4B8"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="trophyGold" x1="1060" y1="58" x2="1158" y2="202" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF2A6"/>
+      <stop offset="0.45" stop-color="#FBBF24"/>
+      <stop offset="1" stop-color="#D97706"/>
+    </linearGradient>
     <filter id="shadow" x="132" y="28" width="936" height="204" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#7F1D1D" flood-opacity="0.18"/>
+    </filter>
+    <filter id="softShadow" x="1020" y="50" width="184" height="168" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#7C2D12" flood-opacity="0.2"/>
     </filter>
   </defs>
 
@@ -24,13 +36,21 @@
     <rect x="156" y="46" width="888" height="168" rx="84" fill="url(#pill)"/>
   </g>
 
-  <rect x="196" y="78" width="156" height="36" rx="18" fill="#FDE68A"/>
-  <text x="274" y="101" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#7C2D12">2026</text>
+  <rect x="28" y="30" width="152" height="42" rx="21" fill="url(#yearPill)" stroke="#7C2D12" stroke-width="2.5"/>
+  <text x="104" y="58" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" letter-spacing="2.5" fill="#5B120E">2026</text>
 
   <text x="600" y="122" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800" letter-spacing="5" fill="#FFF8EE">ACL MAIN ACCEPTED</text>
   <text x="600" y="162" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600" letter-spacing="1.2" fill="#FEE2E2">From Verbatim to Gist: MM-Mem is accepted to the main conference</text>
 
-  <path d="M930 98C930 79.2223 945.222 64 964 64H1028C1046.78 64 1062 79.2223 1062 98V102C1062 116.359 1052.76 128.65 1039.91 133.07L1002.2 146.054C996.231 148.109 989.742 148.109 983.767 146.054L946.086 133.07C933.241 128.65 924 116.359 924 102V98H930Z" fill="#FBBF24"/>
-  <rect x="978" y="146" width="30" height="26" rx="8" fill="#F59E0B"/>
-  <rect x="962" y="170" width="62" height="14" rx="7" fill="#FCD34D"/>
+  <g filter="url(#softShadow)" transform="translate(20 0)">
+    <path d="M1086 74H1142V96C1142 121.302 1126.64 144.073 1103.2 153.469L1098.1 155.516L1092.8 153.396C1069.52 144.082 1054 121.523 1054 96.446V74H1086Z" fill="url(#trophyGold)" stroke="#9A3412" stroke-width="3"/>
+    <path d="M1086 81H1138" stroke="#FFF8D6" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+    <path d="M1054 86H1048C1039.72 86 1033 92.7157 1033 101V106C1033 119.255 1043.75 130 1057 130H1063" stroke="#B45309" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1142 86H1148C1156.28 86 1163 92.7157 1163 101V106C1163 119.255 1152.25 130 1139 130H1133" stroke="#B45309" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M1074 104C1081 96.8 1091.2 96 1098 101.8C1104.8 96 1115 96.8 1122 104C1128.8 111 1127.8 122 1120.4 128.4L1098 145L1075.6 128.4C1068.2 122 1067.2 111 1074 104Z" fill="#FFF8D6" fill-opacity="0.92"/>
+    <rect x="1090" y="156" width="16" height="26" rx="6" fill="#C2410C" stroke="#7C2D12" stroke-width="2"/>
+    <path d="M1078 182H1118C1122.42 182 1126 185.582 1126 190C1126 194.418 1122.42 198 1118 198H1078C1073.58 198 1070 194.418 1070 190C1070 185.582 1073.58 182 1078 182Z" fill="#FCD34D" stroke="#9A3412" stroke-width="2"/>
+    <path d="M1086 198H1110C1113.31 198 1116 200.686 1116 204C1116 207.314 1113.31 210 1110 210H1086C1082.69 210 1080 207.314 1080 204C1080 200.686 1082.69 198 1086 198Z" fill="#B45309" opacity="0.92"/>
+    <ellipse cx="1088" cy="88" rx="9" ry="5" fill="#FFF9DB" fill-opacity="0.72"/>
+  </g>
 </svg>
